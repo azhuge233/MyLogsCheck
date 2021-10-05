@@ -5,7 +5,7 @@ $CountRecordPath = "${PSScriptRoot}\${ProgramName}-record.txt";
 
 $MailUsername = "";
 $MailPassword = "";
-$ToMailAddress = ""
+$ToMailAddress = "";
 
 $QQAddress = "";
 $QQPort = "";
@@ -59,7 +59,7 @@ if($(Test-Path -Path $CountRecordPath) -eq $False ) {
 
 $PrevCount = Get-Content $CountRecordPath -Encoding UTF8;
 $Content = Get-Content $LogPath -Encoding UTF8;
-$Matches = $Content | Select-String -CaseSensitive -Pattern 'Error' -AllMatches
+$Matches = $Content | Select-String -CaseSensitive -Pattern 'Error' -AllMatches;
 $LineNumbers = $Matches | Select LineNumber;
 $CurCount = $Matches.Matches.Count;
 
